@@ -149,7 +149,7 @@
 				OFERTA WAŻNA DO <span class="offer-timer" id="offer-timer">--:--:--</span>
 			</div>
 
-			<form class="offer-container" id="offer-form">
+			<!-- <form class="offer-container" id="offer-form">
 				<label class="offer-option offer-option--selected">
 					<input class="offer-radio" type="radio" name="offer" value="1" checked>
 					<div class="offer-label">
@@ -189,9 +189,64 @@
 						<div class="offer-price-old">1.527,00 zł</div>
 					</div>
 				</label>
+			</form> -->
+			<form class="offer-container" id="offer-form">
+				<label class="offer-option offer-option--selected">
+					<input class="offer-radio" type="radio" name="offer" value="1" checked>
+					<span class="custom-radio-mark"></span>
+					<div class="offer-label-right">
+						<div class="offer-label">
+							<div class="offer-title offer-title--first">1 sztuka</div>
+							<div class="offer-subtext">Cena regularna</div>
+						</div>
+						<div class="offer-pricing">
+							<div class="offer-price-current">219,00 zł</div>
+							<div class="offer-price-old">509,00 zł</div>
+						</div>
+					</div>
+				</label>
+				<label class="offer-option">
+					<span class="offer-badge">NAJCZĘŚCIEJ WYBIERANE</span>
+					<input class="offer-radio" type="radio" name="offer" value="2">
+					<span class="custom-radio-mark"></span>
+					<div class="offer-label-right">
+						<div class="offer-label">
+							<div class="offer-label-top-line">
+								<div class="offer-title">2 sztuki</div>
+								<span class="offer-discount">OSZCZĘDŹ 438,00 zł</span>
+							</div>
+							<div class="offer-subtext">10% dodatkowego rabatu</div>
+						</div>
+						<div class="offer-pricing">
+							<div class="offer-price-current">394,20 zł</div>
+							<div class="offer-price-old">1018,00 zł</div>
+						</div>
+					</div>
+				</label>
+
+				<label class="offer-option">
+					<span class="offer-badge">NAJKORZYSTNIEJ</span>
+					<input class="offer-radio" type="radio" name="offer" value="3">
+					<span class="custom-radio-mark"></span>
+					<div class="offer-label-right">
+						<div class="offer-label">
+							<div class="offer-label-top-line">
+								<div class="offer-title">3 sztuki</div>
+								<span class="offer-discount">OSZCZĘDŹ 657,00 zł</span>
+							</div>
+							<div class="offer-subtext">20% dodatkowego rabatu</div>
+						</div>
+						<div class="offer-pricing">
+							<div class="offer-price-current">525,00 zł</div>
+							<div class="offer-price-old">1.527,00 zł</div>
+						</div>
+					</div>
+				</label>
 			</form>
 
 			<button class="offer-button"><a href="#order-form-section">Dodaj do koszyka</a></button>
+			<p class="offer-quantity">Zostało <span class="offer-quantity-number">9</span> zestawów w cenie promocyjnej!
+			</p>
 		</section>
 		<section class="desc">
 			<div class="desc-image">
@@ -414,10 +469,40 @@
 					</ul>
 				</div>
 			</div> -->
-			<a href="#order-form-section" class="hero__btn hero__btn--promocja">Kup teraz za 219 zł
-				&nbsp;<span>509 zł</span></a>
+			<a href="#order-form-section" class="hero__btn hero__btn--promocja">Zamów teraz!
+			</a>
 		</section>
+		<section class="advantages">
+			<div class="container">
+				<div class="advantages__inner">
+					<div class="advantages__hr"></div>
 
+					<div class="advantages__item">
+						<div class="advantages__item-img">
+							<img src="./imgs/icons/advantages-1.svg" alt="advantages" />
+						</div>
+						<div class="advantages__item-title" id="date_current">23 Luty</div>
+						<div class="advantages__item-desc">Zamówienie przyjęte</div>
+					</div>
+
+					<div class="advantages__item">
+						<div class="advantages__item-img">
+							<img src="./imgs/icons/advantages-2.svg" alt="advantages" />
+						</div>
+						<div class="advantages__item-title" id="date_sent">24 Luty</div>
+						<div class="advantages__item-desc">Paczka wysłana kurierem DPD</div>
+					</div>
+
+					<div class="advantages__item">
+						<div class="advantages__item-img">
+							<img src="./imgs/icons/advantages-3.svg" alt="advantages" />
+						</div>
+						<div class="advantages__item-title" id="date_delivery">28 luty - 1 mar. </div>
+						<div class="advantages__item-desc">Przewidywane doręczenie</div>
+					</div>
+				</div>
+			</div>
+		</section>
 		<section class="history">
 			<div class="container">
 				<div class="history__item">
@@ -468,65 +553,14 @@
 				</div>
 			</div>
 		</section>
-		<section class="advantages">
-			<div class="container">
-				<div class="advantages__inner">
-					<div class="advantages__hr"></div>
 
-					<div class="advantages__item">
-						<div class="advantages__item-img">
-							<img src="./imgs/icons/advantages-1.svg" alt="advantages" />
-						</div>
-						<div class="advantages__item-title" id="date_current">23 Luty</div>
-						<div class="advantages__item-desc">Zamówienie przyjęte</div>
-					</div>
 
-					<div class="advantages__item">
-						<div class="advantages__item-img">
-							<img src="./imgs/icons/advantages-2.svg" alt="advantages" />
-						</div>
-						<div class="advantages__item-title" id="date_sent">24 Luty</div>
-						<div class="advantages__item-desc">Paczka wysłana kurierem DPD</div>
-					</div>
-
-					<div class="advantages__item">
-						<div class="advantages__item-img">
-							<img src="./imgs/icons/advantages-3.svg" alt="advantages" />
-						</div>
-						<div class="advantages__item-title" id="date_delivery">28 luty - 1 mar. </div>
-						<div class="advantages__item-desc">Przewidywane doręczenie</div>
-					</div>
-				</div>
-			</div>
-		</section>
-		<section class="timer">
-			<div class="timer-container">
-				<div class="digit-group" id="hours">
-					<div class="digit">0</div>
-					<div class="digit">0</div>
-				</div>
-				<div class="digit-group" id="minutes">
-					<div class="digit">0</div>
-					<div class="digit">0</div>
-				</div>
-				<div class="digit-group" id="seconds">
-					<div class="digit">0</div>
-					<div class="digit">0</div>
-				</div>
-			</div>
-
-			<div class="label-row">
-				<div class="unit-label">GODZIN</div>
-				<div class="unit-label">MINUT</div>
-				<div class="unit-label">SEKUND</div>
-			</div>
-		</section>
 		<section class="cart">
 			<div class="container">
 				<div class="cart__inner">
 					<h3 class="cart__title">Twoje zamówienie</h3>
 					<ul class="cart__list">
-						<!-- <li class="cart__item">
+						<li class="cart__item">
 							<img src="./imgs/1-million-100-ml-history.webp" alt="perfumy" class="cart__item-img">
 							<div class="cart__item-body">
 								<h5 class="cart__item-title">1 MILLION </h5>
@@ -561,7 +595,7 @@
 									<button class="cart__item-plus">+</button>
 								</div>
 							</div>
-						</li> -->
+						</li>
 					</ul>
 					<div class="cart__total">
 						<div class="cart__total-title">Wartość zamówienia:</div>
@@ -571,7 +605,31 @@
 				</div>
 			</div>
 		</section>
+		<section class="timer">
+			<h3 class="timer__title">DO WZROSTU CEN ZOSTAŁO:</h3>
+			<div class="timer-container">
+				<div class="digit-group" id="hours">
+					<div class="digit">0</div>
+					<div class="digit">0</div>
+				</div>
+				<div class="digit-group" id="minutes">
+					<div class="digit">0</div>
+					<div class="digit">0</div>
+				</div>
+				<div class="digit-group" id="seconds">
+					<div class="digit">0</div>
+					<div class="digit">0</div>
+				</div>
+			</div>
+
+			<div class="label-row">
+				<div class="unit-label">GODZIN</div>
+				<div class="unit-label">MINUT</div>
+				<div class="unit-label">SEKUND</div>
+			</div>
+		</section>
 		<section class="order-form" id="order-form-section">
+			<h3 class="order-form__title">Uzupełnij dane i zamów!</h3>
 			<div class="container">
 				<form class="order-form__form" method="post" action="apiAmo.php" id="order_form">
 					<input class="order-form__field" type="text" id="name" name="name" placeholder="Imię Nazwisko"
@@ -586,9 +644,11 @@
 						placeholder="Adres (ulica, dom, mieszkanie)" required>
 
 					<input class="order-form__field" type="hidden" name="cartJson" id="cartJson">
-					<button class="order-form__btn" type="submit" id="submitForm">Kup teraz za&nbsp;
+					<button class="order-form__btn order-form__btn--promocja" type="submit" id="submitForm">Kup teraz
+						za&nbsp;
 						<span class="order-form__price-now">219</span> zł&nbsp;
 						<span class="order-form__price-old"><span>509</span> zł</span></button>
+					<p class="order-form__payment">Płatność za pobraniem</p>
 				</form>
 			</div>
 		</section>
@@ -785,6 +845,37 @@
 			phone.setCustomValidity('');
 		}
 	}
+
+
+	document.addEventListener("DOMContentLoaded", function () {
+		const offerRadios = document.querySelectorAll('.offer-radio');
+		const itemCountElement = document.querySelector('.cart__item-count-number');
+
+		const savedOfferValue = localStorage.getItem('selectedOfferValue');
+		if (savedOfferValue) {
+			const radioToSelect = [...offerRadios].find(r => r.value === savedOfferValue);
+			if (radioToSelect) {
+				radioToSelect.checked = true;
+				updateCartCount(savedOfferValue);
+			}
+		}
+
+		offerRadios.forEach(radio => {
+			radio.addEventListener('change', function () {
+				if (this.checked) {
+					const selectedValue = this.value;
+					localStorage.setItem('selectedOfferValue', selectedValue); // Сохраняем выбор
+					updateCartCount(selectedValue);
+				}
+			});
+		});
+
+		function updateCartCount(value) {
+			if (itemCountElement) {
+				itemCountElement.textContent = value;
+			}
+		}
+	});
 
 
 </script>

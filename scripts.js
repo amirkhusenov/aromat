@@ -122,49 +122,252 @@ function addProductToCard() {
 	outputCart()
 }
 
-function minusProduct(name) {
-	const cart = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : [];
+function plusProduct(name) {
+	let cart = JSON.parse(localStorage.getItem('cart') || '[]');
 
-	cart.forEach(item => {
-		if (item.name === name) {
-			if (item.qty > 1) {
-				item.qty--;
-				return;
-			}
+	cart = cart.map(item => {
+		if (item.name === name && item.qty < 3) {
+			item.qty++;
+			const basePrice = parseFloat(item.priceOld.replace(',', '.').replace(' zł', '').replace('zł', ''));
 
-			const heroName = document.querySelector('.hero__title').textContent;
-
-			if (heroName !== name) {
-				cart.splice(cart.indexOf(item), 1);
+			switch (item.qty) {
+				case 2:
+					item.priceNow = (basePrice * 0.9).toFixed(2);
+					break;
+				case 3:
+					item.priceNow = (basePrice * 0.8).toFixed(2);
+					break;
+				default:
+					item.priceNow = basePrice.toFixed(2);
 			}
 		}
+		return item;
 	});
 
 	localStorage.setItem('cart', JSON.stringify(cart));
+	outputCart();
 
-	outputCart()
+	const currentItem = cart.find(item => item.name === name);
+	if (currentItem) {
+		syncRadioWithQty(currentItem.qty);
+	}
+}
+
+function minusProduct(name) {
+	let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+
+	cart = cart.map(item => {
+		if (item.name === name && item.qty > 1) {
+			item.qty--;
+			const basePrice = parseFloat(item.priceOld.replace(',', '.').replace(' zł', '').replace('zł', ''));
+
+			switch (item.qty) {
+				case 2:
+					item.priceNow = (basePrice * 0.9).toFixed(2);
+					break;
+				case 1:
+				default:
+					item.priceNow = basePrice.toFixed(2);
+					break;
+			}
+		}
+		return item;
+	});
+
+	localStorage.setItem('cart', JSON.stringify(cart));
+	outputCart();
+
+	const currentItem = cart.find(item => item.name === name);
+	if (currentItem) {
+		syncRadioWithQty(currentItem.qty);
+	}
+}
+
+
+// function outputCart() {
+// 	const cartList = document.querySelector('.cart__list');
+// 	cartList.innerHTML = '';
+
+// 	const cart = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : [];
+
+// 	cart.forEach(item => {
+// 		const li = document.createElement('li');
+// 		li.classList.add('cart__item');
+// 		li.innerHTML = `
+// 			<img src="${item.img}" alt="${item.name}" class="cart__item-img">
+// 			<div class="cart__item-body">
+// 				<h5 class="cart__item-title">${item.name}</h5>
+// 				<div class="cart__item-info">
+// 					<div class="cart__item-price">${item.priceNow} zł &nbsp; <span>${item.priceOld} zł</span></div>
+// 					<div class="cart__item-size">${item.size} ml</div>
+// 				</div>
+// 				<div class="cart__item-amount">
+// 					<button class="cart__item-minus" onclick="minusProduct('${item.name}') ">-</button>
+// 					<div class="cart__item-count">
+// 						<span class="cart__item-count-number">${item.qty}</span>
+// 						&nbsp; szt
+// 					</div>
+// 					<button class="cart__item-plus" onclick="plusProduct('${item.name}') ">+</button>
+// 				</div>
+// 			</div>
+// 		`;
+// 		cartList.append(li);
+// 	})
+
+// 	outputCartTotal()
+// }
+// function outputCart() {
+// 	const cartList = document.querySelector('.cart__list');
+// 	cartList.innerHTML = '';
+
+// 	const cart = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : [];
+
+// 	cart.forEach((item, index) => {
+// 		const li = document.createElement('li');
+// 		li.classList.add('cart__item');
+// 		li.innerHTML = `
+// 			<img src="${item.img}" alt="${item.name}" class="cart__item-img">
+// 			<div class="cart__item-body">
+// 				<h5 class="cart__item-title">${item.name}</h5>
+// 				<div class="cart__item-info">
+// 					<div class="cart__item-price">${item.priceNow} zł &nbsp; <span>${item.priceOld} zł</span></div>
+// 					<div class="cart__item-size">${item.size} ml</div>
+// 				</div>
+// 				<div class="cart__item-amount">
+// 					<button class="cart__item-minus">-</button>
+// 					<div class="cart__item-count">
+// 						<span class="cart__item-count-number">${item.qty}</span>
+// 						&nbsp; szt
+// 					</div>
+// 					<button class="cart__item-plus">+</button>
+// 				</div>
+// 			</div>
+// 		`;
+
+// 		// Привязываем обработчики событий безопасно
+// 		const minusBtn = li.querySelector('.cart__item-minus');
+// 		const plusBtn = li.querySelector('.cart__item-plus');
+
+// 		minusBtn.addEventListener('click', () => {
+// 			minusProduct(item.name);
+// 		});
+
+// 		plusBtn.addEventListener('click', () => {
+// 			plusProduct(item.name);
+// 		});
+
+// 		cartList.append(li);
+// 	});
+
+// 	outputCartTotal();
+// }
+function addProductToCart() {
+	const img = document.querySelector('.hero__img').src;
+	const name = document.querySelector('.hero__title').textContent;
+	const priceNow = document.querySelector('.hero__price-now span').textContent;
+	const priceOld = document.querySelector('.hero__price-old span').textContent;
+	const size = 100;
+
+	const selectedRadio = document.querySelector('.offer-radio:checked');
+	const qty = selectedRadio ? parseInt(selectedRadio.value) : 1;
+
+	let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+
+	const existing = cart.find(item => item.name === name);
+	if (existing) return;
+
+	cart.unshift({ img, name, priceNow, priceOld, size, qty });
+	localStorage.setItem('cart', JSON.stringify(cart));
+	outputCart();
+}
+
+function minusProduct(name) {
+	let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+	cart = cart.map(item => {
+		if (item.name === name && item.qty > 1) {
+			item.qty--;
+		}
+		return item;
+	});
+	localStorage.setItem('cart', JSON.stringify(cart));
+	outputCart();
 }
 
 function plusProduct(name) {
-	const cart = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : [];
-
-	cart.forEach(item => {
-		if (item.name === name) {
+	let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+	cart = cart.map(item => {
+		if (item.name === name && item.qty < 3) {
 			item.qty++;
+		}
+		return item;
+	});
+	localStorage.setItem('cart', JSON.stringify(cart));
+	outputCart();
+}
+
+function updateCartQtyFromRadio(qty) {
+	const name = document.querySelector('.hero__title').textContent;
+	let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+	cart = cart.map(item => {
+		if (item.name === name) item.qty = qty;
+		return item;
+	});
+	localStorage.setItem('cart', JSON.stringify(cart));
+	outputCart();
+}
+
+
+function syncRadioWithQty(qty) {
+	const radios = document.querySelectorAll('input[name="offer"]');
+	const promoBtn = document.getElementById('submitForm');
+	const offerValue = String(qty);
+
+	radios.forEach(r => {
+		const label = r.closest('label');
+
+		r.checked = r.value === offerValue;
+
+		if (r.checked) {
+			label.classList.add('offer-option--selected');
+		} else {
+			label.classList.remove('offer-option--selected');
 		}
 	});
 
-	localStorage.setItem('cart', JSON.stringify(cart));
+	let rabatText = '';
+	let priceNow = '';
+	let priceOld = '';
 
-	outputCart()
+	switch (offerValue) {
+		case '1':
+			rabatText = 'Rabat 55%';
+			priceNow = '219';
+			priceOld = '509';
+			break;
+		case '2':
+			rabatText = 'Rabat 65%';
+			priceNow = '394,20';
+			priceOld = '1018';
+			break;
+		case '3':
+			rabatText = 'Rabat 70%';
+			priceNow = '525';
+			priceOld = '1527';
+			break;
+	}
+
+	promoBtn.setAttribute('data-rabat', rabatText);
+	promoBtn.querySelector('.order-form__price-now').textContent = priceNow;
+	promoBtn.querySelector('.order-form__price-old span').textContent = priceOld;
+
+	localStorage.setItem('selectedOffer', offerValue);
 }
 
 function outputCart() {
 	const cartList = document.querySelector('.cart__list');
 	cartList.innerHTML = '';
 
-	const cart = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : [];
-
+	const cart = JSON.parse(localStorage.getItem('cart') || '[]');
 	cart.forEach(item => {
 		const li = document.createElement('li');
 		li.classList.add('cart__item');
@@ -177,20 +380,54 @@ function outputCart() {
 					<div class="cart__item-size">${item.size} ml</div>
 				</div>
 				<div class="cart__item-amount">
-					<button class="cart__item-minus" onclick="minusProduct('${item.name}') ">-</button>
+					<button class="cart__item-minus">-</button>
 					<div class="cart__item-count">
 						<span class="cart__item-count-number">${item.qty}</span>
 						&nbsp; szt
 					</div>
-					<button class="cart__item-plus" onclick="plusProduct('${item.name}') ">+</button>
+					<button class="cart__item-plus">+</button>
 				</div>
 			</div>
 		`;
-		cartList.append(li);
-	})
 
-	outputCartTotal()
+		li.querySelector('.cart__item-minus').addEventListener('click', () => minusProduct(item.name));
+		li.querySelector('.cart__item-plus').addEventListener('click', () => plusProduct(item.name));
+
+		cartList.append(li);
+
+		syncRadioWithQty(item.qty);
+	});
+
+	outputCartTotal();
 }
+
+function outputCartTotal() {
+	const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+	let totalNow = 0;
+	let totalOld = 0;
+
+	cart.forEach(item => {
+		totalNow += parseFloat(item.priceNow.replace(',', '.')) * item.qty;
+		totalOld += parseFloat(item.priceOld.replace(',', '.')) * item.qty;
+	});
+
+	document.querySelector('.cart__total-price-now').textContent = totalNow.toFixed(2).replace('.', ',');
+	document.querySelector('.cart__total-price-old span').textContent = totalOld.toFixed(2).replace('.', ',');
+}
+
+function initRadioEvents() {
+	document.querySelectorAll('.offer-radio').forEach(radio => {
+		radio.addEventListener('change', () => {
+			const qty = parseInt(radio.value);
+			updateCartQtyFromRadio(qty);
+		});
+	});
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+	outputCart();
+	initRadioEvents();
+});
 
 function outputCartTotal() {
 	const cartTotalPriceNow = document.querySelector('.cart__total-price-now');

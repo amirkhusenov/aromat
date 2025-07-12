@@ -397,23 +397,6 @@ li {
 	text-decoration: line-through;
 }
 
-.hero__btn--promocja::after {
-	content: 'Promocja';
-
-	position: absolute;
-	top: -8px;
-	right: 17px;
-
-	padding: 4px;
-	border-radius: 6px;
-
-	font-weight: 400;
-	font-size: 11px;
-	line-height: 100%;
-
-	color: #fff;
-	background: #C03E3E;
-}
 
 .offer {
 	margin: 0 16px;
@@ -442,7 +425,7 @@ li {
 
 .offer-option {
 	display: flex;
-	justify-content: space-between;
+	gap: 10px;
 	align-items: center;
 	padding: 15px 20px;
 	cursor: pointer;
@@ -460,13 +443,56 @@ li {
 
 .offer-radio {
 	display: none;
-	/* Скрываем нативную радио-кнопку */
+}
+
+.custom-radio-mark {
+	width: 20px;
+	height: 20px;
+	border: 2px solid var(--primary-dark);
+	border-radius: 50%;
+	margin-right: 12px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-shrink: 0;
+	position: relative;
+}
+
+.offer-radio:checked+.custom-radio-mark::before {
+	content: "";
+	width: 10px;
+	height: 10px;
+	background-color: var(--primary-dark);
+	border-radius: 50%;
+}
+
+.offer-label-right {
+	margin-top: 5px;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.offer-label-top-line {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
 }
 
 .offer-label {
 	display: flex;
 	flex-direction: column;
+	justify-content: center;
 	color: white;
+}
+
+.offer-label-top-line {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
 }
 
 .offer-title {
@@ -476,6 +502,7 @@ li {
 }
 
 .offer-subtext {
+	padding-top: 7px;
 	font-size: 14px;
 	color: white;
 }
@@ -485,6 +512,7 @@ li {
 }
 
 .offer-price-current {
+	margin-top: 5px;
 	font-size: 18px;
 	font-weight: bold;
 	color: white;
@@ -492,18 +520,19 @@ li {
 }
 
 .offer-price-old {
+	padding-top: 5px;
 	font-size: 14px;
 	text-decoration: line-through;
+	-webkit-text-decoration-line: line-through;
 	color: #aaa;
 }
 
 .offer-discount {
 	background: var(--primary-dark);
 	color: #1B1B1B;
-	font-size: 12px;
-	border-radius: 20px;
-	padding: 2px 8px;
-	margin: 5px 0;
+	font-size: 10px;
+	border-radius: 2px;
+	padding: 1px 6px;
 	display: inline-block;
 }
 
@@ -533,12 +562,25 @@ li {
 	cursor: pointer;
 }
 
+.offer-quantity {
+	text-align: center;
+	margin-top: 15px;
+	font-size: 18px;
+}
+
+.offer-quantity-number {
+	background-color: var(--primary-dark);
+	color: #1B1B1B;
+	font-weight: bold;
+	padding: 5px;
+}
+
 .offer-button:hover {
 	background: var(--primary-light);
 }
 
 .advantages {
-	margin-top: 1.5rem;
+	margin-bottom: 1.5rem;
 }
 
 .advantages__inner {
@@ -1321,6 +1363,7 @@ li {
 }
 
 .cart {
+	margin-top: 20px;
 	padding: 20px 0px 16px;
 	background: #242424;
 }
@@ -1506,6 +1549,16 @@ li {
 	padding: 24px 0px 20px;
 }
 
+.order-form__title {
+	margin: 0 0 20px 0;
+	text-align: center;
+	font-weight: 700;
+	font-size: 20px;
+	line-height: 100%;
+	text-transform: uppercase;
+	color: #fff;
+}
+
 .order-form__form {}
 
 .order-form__field {
@@ -1535,6 +1588,7 @@ li {
 }
 
 .order-form__btn {
+	position: relative;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -1559,6 +1613,24 @@ li {
 	transition: opacity 0.3s;
 }
 
+.order-form__btn--promocja::after {
+	content: attr(data-rabat);
+
+	position: absolute;
+	top: -8px;
+	right: 17px;
+
+	padding: 4px 8px;
+	border-radius: 6px;
+
+	font-weight: 400;
+	font-size: 11px;
+	line-height: 100%;
+
+	color: #fff;
+	background: #C03E3E;
+}
+
 .order-form__btn:hover {
 	opacity: 0.8;
 }
@@ -1568,8 +1640,23 @@ li {
 	text-decoration: line-through;
 }
 
+.order-form__payment {
+	margin-top: 10px;
+	text-align: center;
+	font-size: 14px;
+	color: rgb(250 247 247 / 50%)
+}
+
 .timer {
 	margin: 20px;
+}
+
+.timer__title {
+	font-weight: 700;
+	font-size: 20px;
+	line-height: 100%;
+	text-align: center;
+	margin: 15px 0px;
 }
 
 .timer-container {
@@ -1609,7 +1696,6 @@ li {
 }
 
 .accordion {
-	background: #1B1B1B;
 	padding: 0 20px 20px 20px;
 }
 
