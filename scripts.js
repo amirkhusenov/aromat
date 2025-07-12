@@ -53,9 +53,9 @@ function updateBackButtonVisibility(index) {
 }
 
 const swiper = new Swiper('.clients__splide', {
-	slidesPerView: 1,
+	slidesPerView: 1.5,
 	spaceBetween: 10,
-	width: 300,
+	// width: 300,
 	navigation: {
 		nextEl: '.swiper-button-next',
 		prevEl: '.swiper-button-prev',

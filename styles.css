@@ -915,7 +915,6 @@ li {
 .clients__list {}
 
 .clients__slide {
-	width: 300px;
 	height: auto !important;
 
 	padding: 16px 8px 8px;
@@ -925,11 +924,11 @@ li {
 
 	display: flex !important;
 	flex-direction: column;
+
+	flex-shrink: 0;
 }
 
-.clients__slide:nth-child(1) {
-	margin-left: 16px;
-}
+
 
 .clients__slide-header-img {
 	width: 48px;
@@ -1648,15 +1647,16 @@ li {
 }
 
 .timer {
-	margin: 20px;
+	background-color: #2f2f2f;
+	padding: 20px 0;
 }
 
 .timer__title {
-	font-weight: 700;
-	font-size: 20px;
+	font-weight: 400;
 	line-height: 100%;
 	text-align: center;
-	margin: 15px 0px;
+
+	margin-bottom: 15px;
 }
 
 .timer-container {
@@ -1676,8 +1676,9 @@ li {
 
 .digit {
 	background: var(--primary-dark);
-	padding: 15px 10px;
+	padding: 15px 15px;
 	border-radius: 10px;
+	font-size: 20px;
 	width: 40px;
 	color: #1B1B1B;
 }
