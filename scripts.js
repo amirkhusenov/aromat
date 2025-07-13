@@ -230,7 +230,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 			<div class="cart__item-body">
 				<h5 class="cart__item-title">${item.name}</h5>
 				<div class="cart__item-info">
-					<div class="cart__item-price">${priceNow}&nbsp; <span>${priceOld}</span></div>
+					<div class="cart__item-price">${priceNow} zł &nbsp; <span>${priceOld} zł</span></div>
 					<div class="cart__item-size">${item.size} ml</div>
 				</div>
 				<div class="cart__item-amount">
