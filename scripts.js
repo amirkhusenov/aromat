@@ -253,8 +253,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
 			updateOfferUI(item.qty);
 		});
 
-		document.querySelector('.cart__total-price-now').textContent = totalNow + ' zł';
-		document.querySelector('.cart__total-price-old span').textContent = totalOld + ' zł';
+		document.querySelector('.cart__total-price-now').textContent = totalNow;
+		document.querySelector('.cart__total-price-old span').textContent = totalOld;
 	}
 
 	function initRadioEvents() {
