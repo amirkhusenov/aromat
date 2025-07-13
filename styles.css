@@ -530,7 +530,7 @@ li {
 .offer-discount {
 	background: var(--primary-dark);
 	color: #1B1B1B;
-	font-size: 10px;
+	font-size: 12px;
 	border-radius: 2px;
 	padding: 1px 6px;
 	display: inline-block;
@@ -912,7 +912,9 @@ li {
 	margin-top: 16px;
 }
 
-.clients__list {}
+.clients__list {
+	padding-left: 16px;
+}
 
 .clients__slide {
 	height: auto !important;
@@ -1364,7 +1366,7 @@ li {
 .cart {
 	margin-top: 20px;
 	padding: 20px 0px 16px;
-	background: #242424;
+	background: #1B1B1B;
 }
 
 .cart__title {
@@ -1647,7 +1649,7 @@ li {
 }
 
 .timer {
-	background-color: #2f2f2f;
+	background-color: #242424;
 	padding: 20px 0;
 }
 

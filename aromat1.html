@@ -6,6 +6,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Lux-perfumy</title>
 	<link rel="stylesheet" href="styles.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+	<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+	<script src='./scripts.js' defer></script>
 	<!-- Yandex.Metrika counter -->
 	<script type="text/javascript">
 		(function (m, e, t, r, i, k, a) {
@@ -51,46 +54,10 @@
 
 <body>
 	<div class="main_wrapper">
-		<!-- <header class="header">
-			<div class="header__wrapper" >
-        <div class="header__content">
-					<div class="header__item">Outlet internetowy</div>
-					<img src="./imgs/icons/star.svg" alt="star"/>
-					<div class="header__item">Darmowa dostawa 1-2 dni</div>
-					<img src="./imgs/icons/star.svg" alt="star"/>
-					<div class="header__item">Czyszczenie magazynu</div>
-					<img src="./imgs/icons/star.svg" alt="star"/>
-					<div class="header__item">Rabaty do -60%</div>
-					<img src="./imgs/icons/star.svg" alt="star"/>
-
-        </div>
-				<div aria-hidden class="header__content">
-					<div class="header__item">Outlet internetowy</div>
-					<img src="./imgs/icons/star.svg" alt="star"/>
-					<div class="header__item">Darmowa dostawa 1-2 dni</div>
-					<img src="./imgs/icons/star.svg" alt="star"/>
-					<div class="header__item">Czyszczenie magazynu</div>
-					<img src="./imgs/icons/star.svg" alt="star"/>
-					<div class="header__item">Rabaty do -60%</div>
-					<img src="./imgs/icons/star.svg" alt="star"/>
-
-        </div>
-				<div aria-hidden class="header__content">
-					<div class="header__item">Outlet internetowy</div>
-					<img src="./imgs/icons/star.svg" alt="star"/>
-					<div class="header__item">Darmowa dostawa 1-2 dni</div>
-					<img src="./imgs/icons/star.svg" alt="star"/>
-					<div class="header__item">Czyszczenie magazynu</div>
-					<img src="./imgs/icons/star.svg" alt="star"/>
-					<div class="header__item">Rabaty do -60%</div>
-					<img src="./imgs/icons/star.svg" alt="star"/>
-        </div>
-    	</div>
-		</header> -->
 		<section class="hero">
 			<div class="hero__inner">
 				<div class="hero__img-wrapper">
-					<img class="hero__img" src="./imgs/aromat1/img-1.jpg" alt="image" />
+					<img class="hero__img" src="./imgs/aromat1/img-1_1_11zon.jpg" alt="image" />
 				</div>
 
 				<div class="hero__content container">
@@ -149,58 +116,20 @@
 				OFERTA WAŻNA DO <span class="offer-timer" id="offer-timer">--:--:--</span>
 			</div>
 
-			<!-- <form class="offer-container" id="offer-form">
-				<label class="offer-option offer-option--selected">
-					<input class="offer-radio" type="radio" name="offer" value="1" checked>
-					<div class="offer-label">
-						<div class="offer-title">1 sztuka</div>
-						<div class="offer-subtext">Cena regularna</div>
-					</div>
-					<div class="offer-pricing">
-						<div class="offer-price-current">219,00 zł</div>
-						<div class="offer-price-old">509,00 zł</div>
-					</div>
-				</label>
-
-				<label class="offer-option">
-					<span class="offer-badge">NAJCZĘŚCIEJ WYBIERANE</span>
-					<input class="offer-radio" type="radio" name="offer" value="2">
-					<div class="offer-label">
-						<div class="offer-title">2 sztuki</div>
-						<span class="offer-discount">OSZCZĘDŹ 438,00 zł</span>
-						<div class="offer-subtext">10% dodatkowego rabatu</div>
-					</div>
-					<div class="offer-pricing">
-						<div class="offer-price-current">394,20 zł</div>
-						<div class="offer-price-old">1018,00 zł</div>
-					</div>
-				</label>
-
-				<label class="offer-option">
-					<span class="offer-badge">NAJKORZYSTNIEJ</span>
-					<input class="offer-radio" type="radio" name="offer" value="3">
-					<div class="offer-label">
-						<div class="offer-title">3 sztuki</div>
-						<span class="offer-discount">OSZCZĘDŹ 657,00 zł</span>
-						<div class="offer-subtext">20% dodatkowego rabatu</div>
-					</div>
-					<div class="offer-pricing">
-						<div class="offer-price-current">525,00 zł</div>
-						<div class="offer-price-old">1.527,00 zł</div>
-					</div>
-				</label>
-			</form> -->
 			<form class="offer-container" id="offer-form">
 				<label class="offer-option offer-option--selected">
 					<input class="offer-radio" type="radio" name="offer" value="1" checked>
 					<span class="custom-radio-mark"></span>
 					<div class="offer-label-right">
 						<div class="offer-label">
-							<div class="offer-title offer-title--first">1 sztuka</div>
-							<div class="offer-subtext">Cena regularna</div>
+							<div class="offer-label-top-line">
+								<div class="offer-title">1 sztuki</div>
+								<span class="offer-discount">oszczędź 270 zł</span>
+							</div>
+							<!-- <div class="offer-subtext">oszczędź 270 zł</div> -->
 						</div>
 						<div class="offer-pricing">
-							<div class="offer-price-current">219,00 zł</div>
+							<div class="offer-price-current">239,00 zł</div>
 							<div class="offer-price-old">509,00 zł</div>
 						</div>
 					</div>
@@ -213,9 +142,9 @@
 						<div class="offer-label">
 							<div class="offer-label-top-line">
 								<div class="offer-title">2 sztuki</div>
-								<span class="offer-discount">OSZCZĘDŹ 438,00 zł</span>
+								<span class="offer-discount">oszczędź 570 zł</span>
 							</div>
-							<div class="offer-subtext">10% dodatkowego rabatu</div>
+							<!-- <div class="offer-subtext">oszczędź 570 zł</div> -->
 						</div>
 						<div class="offer-pricing">
 							<div class="offer-price-current">438,00 zł</div>
@@ -232,12 +161,12 @@
 						<div class="offer-label">
 							<div class="offer-label-top-line">
 								<div class="offer-title">3 sztuki</div>
-								<span class="offer-discount">OSZCZĘDŹ 657,00 zł</span>
+								<span class="offer-discount">oszczędź 930 zł</span>
 							</div>
-							<div class="offer-subtext">20% dodatkowego rabatu</div>
+							<!-- <div class="offer-subtext">oszczędź 930 zł</div> -->
 						</div>
 						<div class="offer-pricing">
-							<div class="offer-price-current"> 657,00 zł</div>
+							<div class="offer-price-current"> 597,00 zł</div>
 							<div class="offer-price-old">1.527,00 zł</div>
 						</div>
 					</div>
@@ -250,7 +179,7 @@
 		</section>
 		<section class="desc">
 			<div class="desc-image">
-				<img src="./imgs/aromat1/img-3.WEBP" alt="desc" class="desc__img">
+				<img src="./imgs/aromat1/img-3_3_11zon.webp" alt="desc" class="desc__img">
 			</div>
 			<div class="container">
 				<h3 class="desc__title">OPIS AROMATU</h3>
@@ -506,7 +435,7 @@
 		<section class="history">
 			<div class="container">
 				<div class="history__item">
-					<img src="./imgs/aromat1/img-2.JPG" alt="history" class="history__item-img">
+					<img src="./imgs/aromat1/img-2_2_11zon.jpg" alt="history" class="history__item-img">
 					<div class="history__item-content">
 						<h3 class="history__item-title">HISTORIA ZAPACHU</h3>
 						<p class="history__item-desc">Sauvage to perfumy, które rewolucjonizują świat męskiej elegancji!
@@ -701,10 +630,6 @@
 			<div class="footer__copyright">@ Wszelkie prawa zastrzeżone</div>
 		</footer>
 	</div>
-
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-	<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-	<script src='./scripts.js'></script>
 </body>
 
 </html>
