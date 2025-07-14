@@ -948,7 +948,14 @@ li {
 }
 
 .clients__slide-info {
+	display: flex;
+	column-gap: 40px;
+}
+
+.clients__slide-about {
 	margin-left: 16px;
+	display: flex;
+	flex-direction: column;
 }
 
 .clients__slide-name {
@@ -1830,6 +1837,33 @@ details[open] .accordion-arrow {
 	color: #FFFFFFB2;
 }
 
+@media (max-width: 438px) {
+	.clients__slide-info {
+		flex-direction: column;
+	}
+
+	.clients__slide-stars {
+		padding: 5px 0 0 5px;
+		margin-left: 10px;
+	}
+}
+
+@media (max-width: 400px) {
+	.offer-label {
+		align-items: flex-start;
+	}
+
+	.offer-label-top-line {
+		flex-direction: column;
+		justify-content: flex-end;
+		align-items: flex-start;
+	}
+
+	.offer-quantity {
+		line-height: 1.5;
+	}
+}
+
 @media (max-width: 359px) {
 	.cart__item-count {
 		font-size: 14px;
@@ -1843,6 +1877,16 @@ details[open] .accordion-arrow {
 
 	.cart__item-title {
 		font-size: 14px;
+	}
+
+	.timer-container {
+		gap: 20px;
+	}
+}
+
+@media (max-width: 345px) {
+	.offer-subtext {
+		font-size: 10px;
 	}
 }
 
