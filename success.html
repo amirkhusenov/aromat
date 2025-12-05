@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Lux Perfumy</title>
+	<link rel="stylesheet" href="./styles.css">
+
+	<!-- Yandex.Metrika counter -->
+	<script type="text/javascript" >
+		(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+		m[i].l=1*new Date();
+		for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+		k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+		(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+		ym(101153400, "init", {
+				clickmap:true,
+				trackLinks:true,
+				accurateTrackBounce:true,
+				webvisor:true
+		});
+	</script>
+	<noscript><div><img src="https://mc.yandex.ru/watch/101153400" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+	<!-- /Yandex.Metrika counter -->
+	
+	<!-- Meta Pixel Code -->
+	<script>
+		!function(f,b,e,v,n,t,s)
+		{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+		n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+		if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+		n.queue=[];t=b.createElement(e);t.async=!0;
+		t.src=v;s=b.getElementsByTagName(e)[0];
+		s.parentNode.insertBefore(t,s)}(window, document,'script',
+		'https://connect.facebook.net/en_US/fbevents.js');
+		fbq('init', '751364111075288');
+		fbq('track', 'Lead');
+		</script>
+		<noscript><img height="1" width="1" style="display:none"
+		src="https://www.facebook.com/tr?id=751364111075288&ev=Lead&noscript=1"
+		/></noscript>
+		<!-- End Meta Pixel Code -->
+</head>
+<body>
+	<div class="main_wrapper">
+		<section class="success-hero">
+			<div class="container">
+				<div class="success-hero__inner">
+					<img class="success-hero__img" src="./imgs/icons/success.svg" alt="success"/>
+					<h1 class="success-hero__title">Twoje zamówienie zostało złożone!</h1>
+					<p class="success-hero__desc">Nasz menedżer wyśle Ci SMS-a z potwierdzeniem zamówienia. Odpowiedz „Tak” na tę wiadomość, aby potwierdzić zamówienie</p>
+				</div>
+			</div>
+		</section>
+
+		<section class="advantages">
+			<div class="container">
+				<div class="advantages__inner">
+					<div class="advantages__hr"></div>
+
+					<div class="advantages__item">
+						<div class="advantages__item-img">
+							<img src="./imgs/icons/advantages-1.svg" alt="advantages"/>
+						</div>
+						<div class="advantages__item-title" id="date_current">23 Luty</div>
+						<div class="advantages__item-desc">Zamówienie przyjęte</div>
+					</div>
+
+					<div class="advantages__item">
+						<div class="advantages__item-img">
+							<img src="./imgs/icons/advantages-2.svg" alt="advantages"/>
+						</div>
+						<div class="advantages__item-title" id="date_sent">24 Luty</div>
+						<div class="advantages__item-desc">Paczka wysłana kurierem DPD</div>
+					</div>
+
+					<div class="advantages__item">
+						<div class="advantages__item-img">
+							<img src="./imgs/icons/advantages-3.svg" alt="advantages"/>
+						</div>
+						<div class="advantages__item-title" id="date_delivery">28 luty - 1 mar. </div>
+						<div class="advantages__item-desc">Przewidywane doręczenie</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<footer class="footer">
+			<div class="footer__links">
+				<a href="https://zestaw3.markowa-bielizna.store/police" class="footer__link">Polityka prywatności</a>
+				<a href="https://zestaw3.markowa-bielizna.store/agreement" class="footer__link">Umowa użytkownika</a>
+			</div>
+			<div class="footer__copyright">@ Wszelkie prawa zastrzeżone</div>
+		</footer>
+	</div>
+</body>
+</html>
+
+<script>
+    const months = {
+        0: 'stycznia',
+        1: 'lutego',
+        2: 'marca',
+        3: 'kwietnia',
+        4: 'maja',
+        5: 'czerwca',
+        6: 'lipca',
+        7:  'sierpnia',
+        8:  'września',
+        9: 'października',
+        10: 'listopada',
+        11: 'grudnia',
+    };
+    const date_current = document.getElementById('date_current');
+    const date_sent = document.getElementById('date_sent');
+    const date_delivery = document.getElementById('date_delivery');
+    const local = (new Date().toLocaleTimeString('us-US',{timeZone: "Europe/Warsaw"})).split(':')[0];
+    const offset = local - (new Date().toTimeString()).split(':')[0];
+    const today = new Date();
+    const month_t = today.getMonth();
+    const date_t = today.getDate()
+    const day_week_t = today.getDay();
+    const hours_t = today.getHours() + offset;
+    const min_t = today.getMinutes();
+    const month_t_pl = months[month_t];
+    const day_plus_1 = addDayToCurrentDate(1, today);
+    const day_plus_2 = addDayToCurrentDate(2, today);
+    const day_plus_3 = addDayToCurrentDate(3, today);
+    const day_plus_4 = addDayToCurrentDate(4, today);
+    const day_plus_5 = addDayToCurrentDate(5, today);
+    date_current.innerHTML = date_t + ' '+ month_t_pl;
+
+    if(hours_t < 17 && (day_week_t !==6 && day_week_t !== 0)) {
+        date_sent.innerHTML = date_t + ' ' + month_t_pl
+    }
+    if(hours_t >= 17  && (day_week_t !==6 && day_week_t !== 0 && day_week_t !== 5)){
+        date_sent.innerHTML = day_plus_1.getDate() + ' ' + months[day_plus_1.getMonth()]
+    }
+    if(hours_t >= 17  && (day_week_t === 5)){
+        date_sent.innerHTML = day_plus_3.getDate() + ' ' + months[day_plus_3.getMonth()]
+        date_delivery.innerHTML = day_plus_4.getDate() + ' ' + (months[day_plus_4.getMonth()]).slice(0,3) + ' - ' + day_plus_5.getDate() + ' ' + (months[day_plus_5.getMonth()]).slice(0,3)
+    }
+    if (day_week_t === 6 ){
+        date_sent.innerHTML = day_plus_2.getDate() + ' ' + months[day_plus_2.getMonth()]
+        date_delivery.innerHTML = day_plus_3.getDate() + ' ' + (months[day_plus_3.getMonth()]).slice(0,3) + ' - ' + day_plus_4.getDate() + ' ' + (months[day_plus_4.getMonth()]).slice(0,3)
+    }
+    if(day_week_t === 0){
+        date_sent.innerHTML = day_plus_1.getDate() + ' ' + months[day_plus_1.getMonth()]
+        date_delivery.innerHTML = day_plus_2.getDate() + ' ' + (months[day_plus_2.getMonth()]).slice(0,3) + ' - ' + day_plus_3.getDate() + ' ' + (months[day_plus_3.getMonth()]).slice(0,3)
+    }
+    if(hours_t < 17 && day_week_t === 4){
+        date_delivery.innerHTML = day_plus_1.getDate() + ' ' + (months[day_plus_1.getMonth()]).slice(0,3) + ' - ' + day_plus_4.getDate() + ' ' + (months[day_plus_4.getMonth()]).slice(0,3)
+    }
+    if(hours_t >= 17  && day_week_t === 4){
+        date_delivery.innerHTML = day_plus_4.getDate() + ' ' + (months[day_plus_4.getMonth()]).slice(0,3) + ' - ' + day_plus_5.getDate() + ' ' + (months[day_plus_5.getMonth()]).slice(0,3)
+    }
+    if(hours_t < 17  && day_week_t !== 4 && day_week_t !== 5 && day_week_t !== 6 && day_week_t !== 0){
+        date_delivery.innerHTML = day_plus_1.getDate() + ' ' + (months[day_plus_1.getMonth()]).slice(0,3) + ' - ' + day_plus_2.getDate() + ' ' + (months[day_plus_2.getMonth()]).slice(0,3)
+    }
+    if(hours_t < 17  && (day_week_t === 5)){
+        date_delivery.innerHTML = day_plus_3.getDate() + ' ' + (months[day_plus_3.getMonth()]).slice(0,3) + ' - ' + day_plus_4.getDate() + ' ' + (months[day_plus_4.getMonth()]).slice(0,3)
+    }
+    if(hours_t >= 17  && (day_week_t === 1 || day_week_t === 2 || day_week_t === 3)){
+        date_delivery.innerHTML = day_plus_2.getDate() + ' ' + (months[day_plus_2.getMonth()]).slice(0,3) + ' - ' + day_plus_3.getDate() + ' ' + (months[day_plus_3.getMonth()]).slice(0,3)
+    }
+
+
+    function addDayToCurrentDate(days, today){
+        const currentDate = structuredClone(today);
+        return new Date(currentDate.setDate(currentDate.getDate() + days))
+    }
+
+</script>
